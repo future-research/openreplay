@@ -40,9 +40,7 @@ kafka: &kafka
     # - name: KAFKA_CFG_MESSAGE_MAX_BYTES
     #   value: "3000000"
 
-
-redis: &redis
-  # enabled: false
+redis: &redis # enabled: false
   redisHost: "redis-master.db.svc.cluster.local"
   redisPort: "6379"
 
@@ -62,8 +60,8 @@ ingress-nginx: &ingress-nginx
     ingressClassResource:
       # -- Name of the ingressClass
       name: openreplay
-  # -- For backwards compatibility with ingress.class annotation, use ingressClass.
-  # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
+    # -- For backwards compatibility with ingress.class annotation, use ingressClass.
+    # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
     ingressClass: openreplay
     service:
       externalTrafficPolicy: "Local"
@@ -76,7 +74,7 @@ ingress-nginx: &ingress-nginx
       # Enable LB forwarded protocol
       # Ref: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#use-forwarded-headers
       # https://github.com/nginxinc/kubernetes-ingress/issues/1284#issuecomment-872869354
-      # use-forwarded-headers: true
+      use-forwarded-headers: true
       # Ref: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#max-worker-connections
       max-worker-connections: 0
       # SSL redirection
@@ -103,15 +101,15 @@ global:
     accessKey: "changeMeMinioAccessKey"
     secretKey: "changeMeMinioPassword"
   email:
-    emailHost: ''
-    emailPort: '587'
-    emailUser: ''
-    emailPassword: ''
-    emailUseTls: 'true'
-    emailUseSsl: 'false'
-    emailSslKey: ''
-    emailSslCert: ''
-    emailFrom: 'OpenReplay<do-not-reply@openreplay.com>'
+    emailHost: ""
+    emailPort: "587"
+    emailUser: ""
+    emailPassword: ""
+    emailUseTls: "true"
+    emailUseSsl: "false"
+    emailSslKey: ""
+    emailSslCert: ""
+    emailFrom: "OpenReplay<do-not-reply@openreplay.com>"
 
   enterpriseEditionLicense: ""
   domainName: ""
@@ -139,7 +137,6 @@ chalice:
     # idp_sls_url: ''
     # idp_name: ''
     # idp_tenantKey: ''
-
 # If you want to override something
 # chartname:
 #   filedFrom chart/Values.yaml:
